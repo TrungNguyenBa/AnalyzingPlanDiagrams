@@ -1,0 +1,19 @@
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew install postgres
+postgres -D /usr/local/var/postgres
+
+
+createdb 'tpch_sf1'
+pg_restore -C -d 'tpch_sf1' /Users/weixie/Downloads/tpch_sf1.dump 
+
+createdb 'tpch_sf10'
+pg_restore -C -d 'tpch_sf10' /Users/weixie/Downloads/tpch_sf10.dump 
+
+
+dropdb 'tpch_sf10'
+dropdb 'tpch10'
+dropdb 'tpch10createdb'
+
+
+psql -h localhost -d tpch_sf1 -U weixie -p 5432 -a -q -f /Users/weixie/onedrive/cs/645DatabaseDesignAndImplementation/homework/mini-project/sql_query/query2p0_ps0.sql -o /Users/weixie/onedrive/cs/645DatabaseDesignAndImplementation/homework/mini-project/sql_output/query2p0_ps0.json
