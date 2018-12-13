@@ -10,3 +10,5 @@ chmod u+x *.sh
 python generate_sql_query2.py
 python generate_sql_query8.py
 
+python parse_json_query2.py
+python parse_json_query8.py

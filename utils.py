@@ -3,19 +3,19 @@ def remove_item(datas):
         for data in datas:
             remove_item(data)
     if type(datas) == type({}):
-        if datas.has_key('TotalCost'):
+        if datas.get('TotalCost',0):
             datas.pop('TotalCost')
-        if datas.has_key('StartupCost'):
+        if datas.get('StartupCost',0):
             datas.pop('StartupCost')
-        if datas.has_key('PlanRows'):
+        if datas.get('PlanRows',0):
             datas.pop('PlanRows')
-        if datas.has_key('PlanWidth'):
+        if datas.get('PlanWidth',0):
             datas.pop('PlanWidth')
-        if datas.has_key('Plan'):
+        if datas.get('Plan',0):
             remove_item(datas['Plan'])
-        if datas.has_key('Plans'):
+        if datas.get('Plans',0):
             remove_item(datas['Plans'])
-        if datas.has_key('IndexCond'):
-            remove_item(datas['IndexCond'])
-        if datas.has_key('Filter'):
-            remove_item(datas['Filter'])
+        if datas.get('IndexCond',0):
+            datas.pop('IndexCond')
+        if datas.get('Filter',0):
+            datas.pop('Filter')
